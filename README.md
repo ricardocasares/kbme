@@ -36,7 +36,6 @@ You can create a `.env` file from which `kbme` will read environment variables, 
 #### Sample .env file
 ````
 KBME_JIRA="http://server-url.com"
-KBME_ENDPOINT="%jira/rest/api/2/search?jql=%jql&expand=changelog"
 KBME_USER="Ringo"
 KBME_PASS="St4r"
 KBME_AUTO=15
