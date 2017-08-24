@@ -1,0 +1,26 @@
+{
+  "name": "kbme",
+  "version": "1.0.0",
+  "description": "Gather kanban metrics from your JIRA instance",
+  "main": "index.js",
+  "bin": {
+    "kbme": "cli.js"
+  },
+  "engines": {
+    "node": ">=7.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ricardocasares/kbme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ricardocasares/kbme/issues"
+  },
+  "author": "Ricardo Casares",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "got": "^7.1.0",
+    "mri": "^1.1.0"
+  }
+}
