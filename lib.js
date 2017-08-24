@@ -48,6 +48,7 @@ function metrics(opts, issues) {
         }))
         .reduce(num_reducer, 0)
     
+    // @TODO: this is not working well
     const cycleTimeAggregate = issues
         .map(issue => cycle({
             fields: issue.fields,
