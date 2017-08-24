@@ -1,4 +1,4 @@
-const { pad, date_ago, days_between, by_status, num_reducer, replace } = require('./util')
+const { pad, date_ago, days_between, by_status_change, num_reducer, replace } = require('./util')
 
 module.exports = {
   request,
@@ -30,9 +30,8 @@ function cycle({fields, changelog, progress, done}) {
 }
 
 function date_to_status(status, histories) {
-  let filt = h => h.items.filter(by_status(status))
   let date = histories
-    .filter(filt)
+    .filter(by_status_change(status))
     .map(f => f.created)
     .pop()
 

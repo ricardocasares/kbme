@@ -5,6 +5,7 @@ module.exports = {
   days_between,
   num_reducer,
   by_status,
+  by_status_change,
   replace,
   validate,
 }
@@ -37,6 +38,10 @@ function by_status(status) {
   return function({field, toString}) {
     return (field === 'status' && toString === status)
   }
+}
+
+function by_status_change(status) {
+  return h => h.items.filter(by_status(status))
 }
 
 function replace(target, options) {
