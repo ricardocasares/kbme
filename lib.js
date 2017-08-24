@@ -16,21 +16,21 @@ function request({jira, user, pass, endpoint}) {
 }
 
 function lead({fields, changelog, done}) {
-  let start = new Date(fields.created)
-  let finish = new Date(date_to_status(done, changelog.histories))
+  const start = new Date(fields.created)
+  const finish = new Date(date_to_status(done, changelog.histories))
 
   return days_between(finish, start)
 }
 
 function cycle({fields, changelog, progress, done}) {
-  let start = new Date(date_to_status(progress, changelog.histories))
-  let finish = new Date(date_to_status(done, changelog.histories))
+  const start = new Date(date_to_status(progress, changelog.histories))
+  const finish = new Date(date_to_status(done, changelog.histories))
 
   return days_between(finish, start)
 }
 
 function date_to_status(status, histories) {
-  let date = histories
+  const date = histories
     .filter(by_status_change(status))
     .map(f => f.created)
     .pop()
