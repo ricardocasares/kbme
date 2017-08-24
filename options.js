@@ -1,5 +1,5 @@
 const { join } = require('path')
-const { date_ago } = require('./lib')
+const { date_ago } = require('./util')
 
 require('dotenv').config({
     path: join(process.cwd(), '.env')
