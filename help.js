@@ -1,7 +1,7 @@
 const pkg = require('./package.json')
 const opt = require('./options')
 
-let help =`
+const help =`
 ${pkg.name} v${pkg.version}
 -----------
 
