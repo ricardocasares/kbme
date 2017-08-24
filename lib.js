@@ -9,10 +9,10 @@ function request({jira, user, pass, endpoint}) {
   const got = require('got')
 
   return async (jql) =>
-  await got(replace(endpoint, {jira, jql}), {
-    json: true,
-    auth: `${user}:${pass}`
-  }).then(res => res.body.issues)
+    await got(replace(endpoint, {jira, jql}), {
+      json: true,
+      auth: `${user}:${pass}`
+    }).then(res => res.body.issues)
 }
 
 function lead({fields, changelog, done}) {
