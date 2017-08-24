@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 const mri = require('mri')
 const opt = require('./options')
-const { validate, replace, csv } = require('./util')
 const { request, metrics} = require('./lib')
+const { validate, replace, csv } = require('./util')
 
 const flags = mri(process.argv.slice(2), {
   alias: {
