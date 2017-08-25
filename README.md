@@ -15,19 +15,19 @@ Gather kanban metrics from your JIRA instance:
 
 ### Options
 
-    -c, --csv         Outputs comma separated values [${opt.csv}]
+    -c, --csv         Outputs comma separated values [false]
     -k, --keys        Comma separated list of projects keys
-    -t, --types       Issue types filter [${opt.types}]
-    -d, --done        Done status [${opt.done}]
-    -t, --todo        ToDo status [${opt.todo}]
-    -s, --start       Period start [${opt.start}]
-    -f, --finish      Period finish [${opt.finish}]
-    -a, --auto        Automatic period dates based on days ago [${opt.period}]
-    -q, --query       JIRA JQL Query [${opt.query}]
-    -u, --user        JIRA username [${opt.user}]
+    -t, --types       Issue types filter [NOT IN (Epic)]
+    -d, --done        Done status [Done]
+    -t, --todo        ToDo status [ToDo]
+    -s, --start       Period start [2017-08-01]
+    -f, --finish      Period finish [2017-08-15]
+    -a, --auto        Automatic period dates based on days ago []
+    -q, --query       JIRA JQL Query [project IN (%keys) AND status IN (%done) AND resolutiondate > %start AND resolutiondate < %finish AND issuetype %types]
+    -u, --user        JIRA username []
     -p, --pass        JIRA password
-    -j, --jira        JIRA REST API URL [${opt.jira}]
-    -e, --endpoint    JIRA JQL /search endpoint [${opt.endpoint}]
+    -j, --jira        JIRA REST API URL [https://server-name.com]
+    -e, --endpoint    JIRA JQL /search endpoint [%jira/jira/rest/api/2/search?jql=%jql&expand=changelog&maxResults=1000]
 
 ### Automatic environment variables detection
 

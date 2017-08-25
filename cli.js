@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 const mri = require('mri')
 const opt = require('./options')
-const { request, metrics} = require('./lib')
-const { validate, replace, csv } = require('./util')
+const { request, metrics } = require('./lib')
+const { validate, replace, csv, handle_error } = require('./util')
 
 const flags = mri(process.argv.slice(2), {
   alias: {
@@ -24,15 +24,22 @@ const flags = mri(process.argv.slice(2), {
 
 validate(flags)
 
-main().then(console.log).catch(console.log);
+if (flags.help) {
+  console.log(require('./help'))
+  process.exit(0);
+}
 
-async function main() {
-  const api = request(flags);
-  const query = replace(flags.query, flags)
+run(flags)
+  .then(console.log)
+  .catch(handle_error);
+
+async function run(opt) {
+  const api = request(opt);
+  const query = replace(opt.query, opt)
   const issues = await api(query)
-  const res = metrics(flags, issues)
+  const res = metrics(opt, issues)
 
-  if (flags.csv) {
+  if (opt.csv) {
     return csv(res)
   }
 

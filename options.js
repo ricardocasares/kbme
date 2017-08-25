@@ -7,10 +7,10 @@ require('dotenv').config({
 
 module.exports = {
   csv: false,
-  jira: process.env.KBME_JIRA || '',
-  user: process.env.KBME_USER || '',
-  pass: process.env.KBME_PASS || '',
-  auto: process.env.KBME_AUTO || false,
+  jira: process.env.KBME_JIRA,
+  user: process.env.KBME_USER,
+  pass: process.env.KBME_PASS,
+  auto: process.env.KBME_AUTO,
   start: process.env.KBME_START || date_ago(15),
   finish: process.env.KBME_FINISH || date_ago(0),
   done: process.env.KBME_DONE || 'Done',
