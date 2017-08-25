@@ -1,10 +1,14 @@
-const { pad, date_ago, days_between, by_status_change, num_reducer, replace } = require('./util')
+const { pad, date_ago, days_between, num_reducer, replace } = require('./util')
 
 module.exports = {
   request,
   metrics
 }
 
+/**
+ * Returns an API request function used to execute JQL
+ * @param {Object} config  API configuration options
+ */
 function request({jira, user, pass, endpoint}) {
   const got = require('got')
 
@@ -15,53 +19,103 @@ function request({jira, user, pass, endpoint}) {
     }).then(res => res.body.issues)
 }
 
-function lead({fields, changelog, done}) {
+/**
+ * Lead time
+ *
+ * t1 = issue.fields.created
+ * t2 = issue.changelog.histories[].created // histories[].items[].toString = 'Done'
+ *
+ * cT = t2 - t1
+ *
+ * @param {Object} issue  Issue
+ * @param {string} done   Done status
+ */
+function lead({fields, changelog}, status) {
   const start = new Date(fields.created)
-  const finish = new Date(date_to_status(done, changelog.histories))
+  const finish = new Date(date_to_status(status, changelog))
+
+  return days_between(finish, start)
+}
+/**
+ * Cycle time
+ *
+ * t1 = issue.changelog.histories[].created // histories[].items[].toString = 'ToDo'
+ * t2 = issue.changelog.histories[].created // histories[].items[].toString = 'Done'
+ *
+ * cT = t2 - t1
+ *
+ * @param {Object} issue  Issue
+ * @param {string} todo   Pending status
+ * @param {string} done   Done status
+ */
+function cycle({fields, changelog}, todo, done) {
+  const start = new Date(date_to_status(todo, changelog))
+  const finish = new Date(date_to_status(done, changelog))
 
   return days_between(finish, start)
 }
 
-function cycle({fields, changelog, progress, done}) {
-  const start = new Date(date_to_status(progress, changelog.histories))
-  const finish = new Date(date_to_status(done, changelog.histories))
-
-  return days_between(finish, start)
-}
-
-function date_to_status(status, histories) {
+/**
+ * Returns the date for a given status transition
+ *
+ * Issue structure reference
+ * =========================
+ * {
+ *   key: 'SFC-123',
+ *   fields: {
+ *     // ...
+ *     created: '2017-04-07T11:05:12.010+0000'
+ *   },
+ *   changelog: {
+ *     // ...
+ *     histories: [
+ *       {
+ *         // ...
+ *         created: '2017-08-07T11:56:53.090+0000',
+ *         items: [
+ *           {
+ *             // ...
+ *             field: 'status',
+ *             toString: 'ToDo'
+ *           }
+ *         ]
+ *       }
+ *     ]
+ *   }
+ *   // ...
+ * }
+ *
+ * @param {string} status     Issue status
+ * @param {Object} histories  Issue changelog histories
+ */
+function date_to_status(status, {histories}) {
   const date = histories
-    .filter(by_status_change(status))
+    .filter(
+      ({ items }) => items.filter(
+        ({ field, toString }) =>
+          (field === 'status' && toString === status)
+      ).length > 0
+    )
     .map(f => f.created)
     .pop()
 
-  return date || new Date();
+  return date;
 }
 
+/**
+ * Returns the metrics object
+ * @param {Object} opts    Options
+ * @param {Array}  issues  Issues array
+ */
 function metrics(opts, issues) {
-  const leadTimeAggregate = issues
-    .map(issue => lead({
-      fields: issue.fields,
-      changelog: issue.changelog,
-      done: opts.done
-    }))
-    .reduce(num_reducer, 0)
+  const leadTimeAvg = issues
+    .map(issue => lead(issue, opts.done))
+    .reduce(num_reducer, 0) / issues.length
 
   // @TODO: this is not working well
-  const cycleTimeAggregate = issues
-    .map(issue => cycle({
-      fields: issue.fields,
-      changelog: issue.changelog,
-      done: opts.done,
-      progress: opts.progress
-    }))
-    .reduce(num_reducer, 0)
-
-  if (opts.auto) {
-    opts.auto = parseInt(opts.auto, 10)
-    opts.start = date_ago(opts.auto)
-    opts.finish = date_ago(0)
-  }
+  const cycleTimeAvg = issues
+    .map(issue => cycle(issue, opts.todo, opts.done))
+    .reduce(num_reducer, 0) / issues.length
 
   const period = opts.auto || days_between(new Date(opts.start), new Date(opts.finish))
   const throughput = (issues.length / period)
@@ -69,8 +123,8 @@ function metrics(opts, issues) {
   return {
     issues: issues.length,
     throughput,
-    leadTimeAggregate,
-    cycleTimeAggregate,
+    leadTimeAvg,
+    cycleTimeAvg,
     start: opts.start,
     finish: opts.finish
   }
