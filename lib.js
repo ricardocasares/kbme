@@ -49,7 +49,10 @@ function lead({fields, changelog}, status) {
  * @param {string} done   Done status
  */
 function cycle({fields, changelog}, todo, done) {
-  const start = new Date(date_to_status(todo, changelog))
+  // When issues are moved directly to 'done' status, without going
+  // thru 'todo', date_to_status() returns undefined, in this case
+  // fields.created will be used instead of 'todo' date
+  const start = new Date(date_to_status(todo, changelog) || fields.created)
   const finish = new Date(date_to_status(done, changelog))
 
   return days_between(finish, start)
@@ -112,7 +115,6 @@ function metrics(opts, issues) {
     .map(issue => lead(issue, opts.done))
     .reduce(num_reducer, 0) / issues.length
 
-  // @TODO: this is not working well
   const cycleTimeAvg = issues
     .map(issue => cycle(issue, opts.todo, opts.done))
     .reduce(num_reducer, 0) / issues.length
