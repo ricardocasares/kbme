@@ -24,7 +24,7 @@ Watch the video to understand how metrics are collected.
 
 Use the `kbme` command to gather information for a particular period of time
 
-`kbme --csv --start 2017-08-01 --finish 2017-08-31 >> metrics.csv`
+> `kbme --csv --start 2017-08-01 --finish 2017-08-31 >> metrics.csv`
 
 
 Collect metrics for the last 90 days using 15 days intervals
