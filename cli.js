@@ -5,7 +5,7 @@ const { replace, csv, date_ago, format } = require('./lib/util')
 
 const flags = mri(process.argv.slice(2), require('./lib/config'));
 
-// validate(flags)
+validate(flags)
 
 if (flags.help) {
   console.log(require('./lib/help'))
