@@ -1,6 +1,7 @@
 # kbme
 [![Build Status](https://travis-ci.org/ricardocasares/kbme.svg?branch=master)](https://travis-ci.org/ricardocasares/kbme)
 [![codecov](https://codecov.io/gh/ricardocasares/kbme/branch/master/graph/badge.svg)](https://codecov.io/gh/ricardocasares/kbme)
+[![npm](https://img.shields.io/npm/dt/kbme.svg)](https://npmjs.com/package/kbme)
 
 Gather kanban metrics from your JIRA instance:
 
