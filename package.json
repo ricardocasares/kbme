@@ -4,8 +4,7 @@
   "description": "Gather kanban metrics from your JIRA instance",
   "main": "lib/index.js",
   "bin": {
-    "kbme": "cli.js",
-    "kbmeh": "history.js"
+    "kbme": "cli.js"
   },
   "engines": {
     "node": ">=7.6"

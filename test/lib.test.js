@@ -1,7 +1,24 @@
 const { got } = require('./mocks')
 const { date_ago } = require('../lib/util')
 const { issues } = require('./mocks/issues.json')
-const { request, lead, cycle, metrics, date_to_status } = require('../lib')
+const { request, lead, cycle, metrics, date_to_status, query, report } = require('../lib')
+
+let options = {
+  auto: false,
+  done: 'Done',
+  todo: 'ToDo',
+  start: '2017-08-01',
+  finish: '2017-08-26',
+  jira: 'test',
+  user: 'user',
+  pass: 'pass',
+  endpoint: 'test',
+  query: 'test',
+  interval: 2,
+  period: 4
+}
+
+const makeOptions = (opts) => Object.assign({}, options, opts)
 
 describe('lib', () => {
   describe('#request', () => {
@@ -47,15 +64,6 @@ describe('lib', () => {
   })
 
   describe('#metrics', () => {
-    let options = {
-      auto: false,
-      done: 'Done',
-      todo: 'ToDo',
-      start: '2017-08-01',
-      finish: '2017-08-26',
-    }
-
-    const makeOptions = (opts) => Object.assign({}, options, opts)
 
     describe('automatic period', () => {
       it('should not be used when false', () => {
@@ -71,6 +79,24 @@ describe('lib', () => {
         expect(metrics(makeOptions({ auto: 2 }), issues)).toMatchObject({
           throughput: 2
         })
+      })
+    })
+  })
+
+  describe('#query', () => {
+    describe('should collect metrics for specific interval', () => {
+      it('should not be used when false', async () => {
+        const res = await query(options, got)
+        expect(res).toMatchObject({throughput: 0.16})
+      })
+    })
+  })
+
+  describe('#report', () => {
+    describe('should collect metrics for specific period & interval', () => {
+      it('should not be used when false', async () => {
+        const res = await report(options, got)
+        expect(res).toHaveLength(2)
       })
     })
   })

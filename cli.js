@@ -1,53 +1,33 @@
 #!/usr/bin/env node
 const mri = require('mri')
-const opt = require('./lib/options')
-const { request, metrics } = require('./lib')
-const { replace, csv, date_ago } = require('./lib/util')
+const { query, report } = require('./lib')
+const { replace, csv, date_ago, format } = require('./lib/util')
 
-const flags = mri(process.argv.slice(2), {
-  alias: {
-    c: 'csv',
-    k: 'keys',
-    t: 'types',
-    a: 'auto',
-    d: 'done',
-    t: 'todo',
-    u: 'user',
-    p: 'pass',
-    j: 'jira',
-    e: 'endpoint',
-    q: 'query',
-    h: 'help'
-  },
-  default: opt
-});
+const flags = mri(process.argv.slice(2), require('./lib/config'));
 
-validate(flags)
+// validate(flags)
 
-run(flags)
-  .then(console.log)
-  .catch(handle_error);
+if (flags.help) {
+  console.log(require('./lib/help'))
+  process.exit(0);
+}
 
-async function run(opt) {
-  const api = request(opt);
-  const query = replace(opt.query, opt)
-  const issues = await api(query)
-  const res = metrics(opt, issues)
+if (flags.report) {
+  report(flags)
+    .then(format(flags))
+    .then(console.log)
+    .catch(handle_error)
+}
 
-  if (opt.csv) {
-    return csv(res)
-  }
-
-  return res;
+if (!flags.report) {
+  query(flags)
+    .then(format(flags))
+    .then(console.log)
+    .catch(handle_error)
 }
 
 function validate(opt) {
   let error = false
-
-  if (flags.help) {
-    console.log(require('./lib/help'))
-    process.exit(0);
-  }
 
   if (!opt.jira) {
     error = true

@@ -22,12 +22,22 @@ Watch the video to understand how metrics are collected.
 
 ## Usage
 
-### `kbme`
 Use the `kbme` command to gather information for a particular period of time
 
 `kbme --csv --start 2017-08-01 --finish 2017-08-31 >> metrics.csv`
 
-#### Options
+
+Collect metrics for the last 90 days using 15 days intervals
+
+> `kbme --report --interval 15 --period 90 >> metrics.csv`
+
+
+
+Adds a new line to the previous report using data from last 15 days
+
+> `kbme --auto 15 --csv >> metrics.csv`
+
+### Options
 
     -c, --csv         Outputs comma separated values [false]
     -k, --keys        Comma separated list of projects keys
@@ -42,30 +52,22 @@ Use the `kbme` command to gather information for a particular period of time
     -p, --pass        JIRA password
     -j, --jira        JIRA REST API URL [https://server-name.com]
     -e, --endpoint    JIRA JQL /search endpoint [%jira/jira/rest/api/2/search?jql=%jql&expand=changelog&maxResults=1000]
+    --period          Period of time to collect metrics, in days [${opt.period}]
+    -i, --interval    Interval to split metrics on, in days [${opt.interval}]
 
-### `kbmeh`
-
-Use the `kbmeh` command to generate an automated historical output for a given period and intervals, for example, collect metrics for last 365 days on intervals of 15 days:
-
-`kbmeh --range 365 --interval 15 --csv >> metrics.csv`
-
-#### Options
-
-    -r, --range         Range of time to collect metrics, in days [365]
-    -i, --interval      Interval to split metrics on, in days [15]
-
-### Automatic environment variables detection
+## Automatic environment variables detection
 
 You can create a `.env` file from which `kbme` will read environment variables, use this to setup a project you want constant metrics from.
 
-#### Sample .env file
+### Sample .env file
 ````
 KBME_JIRA="http://server-url.com"
 KBME_USER="Ringo"
 KBME_PASS="St4r"
 KBME_AUTO=15
-KBME_RANGE=365
+KBME_PERIOD=365
 KBME_INTERVAL=15
+KBME_REPORT=true
 KBME_START="2017-01-01"
 KBME_FINISH="2017-06-01"
 KBME_DONE="Done"

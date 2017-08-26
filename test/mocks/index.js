@@ -1,7 +1,7 @@
 exports.issues = require('./issues.json')
 exports.got = async function() {
-  return await new Promise((res, rej) => {
-    res({
+  return new Promise((resolve, reject) => {
+    resolve({
       body: exports.issues
     })
   })

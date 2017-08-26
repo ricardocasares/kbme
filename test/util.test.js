@@ -1,5 +1,9 @@
-const { pad, csv, date_ago, days_between, num_reducer, replace, generate_dates } = require('../lib/util')
-
+const { pad, csv, toJSON, date_ago, days_between, num_reducer, replace, generate_dates, format } = require('../lib/util')
+const pretty = `{
+  "a": "x",
+  "b": "y",
+  "c": "z"
+}`
 
 describe('util', () => {
   describe('#pad', () => {
@@ -18,6 +22,17 @@ describe('util', () => {
     test('should output comma separated list of object values', () => {
       expect(csv({})).toBe('')
       expect(csv({a:'x', b: 'y', c: 'z'})).toBe('x, y, z')
+    })
+
+    test('should handle arrays', () => {
+      expect(csv([{}])).toBe('')
+      expect(csv([{a:'x', b: 'y', c: 'z'}])).toBe('x, y, z')
+    })
+  })
+
+  describe('#toJSON', () => {
+    test('should output prettified json', () => {
+      expect(toJSON({a:'x', b: 'y', c: 'z'})).toBe(pretty)
     })
   })
 
@@ -87,6 +102,17 @@ describe('util', () => {
       expect(generate_dates(15, 20)).toHaveLength(2)
       expect(generate_dates(15, 31)).toHaveLength(3)
       expect(generate_dates(15, 365)).toHaveLength(25)
+    })
+  })
+
+  describe('#format', () => {
+    test('should return correct output based on input', () => {
+      const json = format({})
+      const comma = format({csv: true})
+      expect(typeof json).toBe('function')
+      expect(typeof comma).toBe('function')
+      expect(json({a:'x', b: 'y', c: 'z'})).toBe(pretty)
+      expect(comma({a: 1, b: 2})).toBe('1, 2')
     })
   })
 })
