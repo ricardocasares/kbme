@@ -5,8 +5,8 @@ module.exports = {
   days_between,
   num_reducer,
   replace,
-  validate,
-  handle_error
+  // validate,
+  // handle_error
 }
 
 /**
@@ -66,48 +66,4 @@ function replace(target, options) {
   }
 
   return target;
-}
-
-/**
- * Validates program options and exits the process in case of errors
- * @param {Object} opt Program options
- */
-function validate(opt) {
-  let error = false
-
-  if (!opt.jira) {
-    error = true
-    console.error('Please configure your JIRA URL environment variable')
-  }
-
-  if (!opt.user) {
-    error = true
-    console.error('Please configure your JIRA user environment variable')
-  }
-
-  if (!opt.pass) {
-    error = true
-    console.error('Please configure your JIRA password environment variable')
-  }
-
-  if (opt.auto) {
-    opt.auto = parseInt(opt.auto, 10)
-    opt.start = date_ago(opt.auto)
-    opt.finish = date_ago(0)
-  }
-
-  if (error) process.exit(1)
-}
-
-/**
- * Formats error messages
- * @param {Error} err
- */
-function handle_error(err) {
-  const envelope = {}
-  envelope.name = err.name || 'Unknown Error',
-  envelope.code = err.statusCode || err.code || 1000
-  envelope.message = err.statusMessage || 'An error has occurred'
-
-  console.error(envelope)
 }

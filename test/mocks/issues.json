@@ -1,0 +1,498 @@
+{
+  "expand": "schema,names",
+  "startAt": 0,
+  "maxResults": 4,
+  "total": 31,
+  "issues": [
+    {
+      "fields": {
+        "created": "2017-08-07T11:02:08.000+0000"
+      },
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 8,
+        "total": 8,
+        "histories": [
+          {
+            "id": "3763687",
+            "created": "2017-08-07T11:56:53.090+0000",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "10716",
+                "fromString": "Pending",
+                "to": "10010",
+                "toString": "ToDo"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-07T11:56:57.293+0000",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "10010",
+                "fromString": "ToDo",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-07T11:57:11.983+0000",
+            "items": [
+              {
+                "field": "RemoteIssueLink",
+                "fieldtype": "jira",
+                "from": null,
+                "fromString": null,
+                "to": "65760",
+                "toString": "This issue links to \"Bamboo Development Tools › wk-docs › bugfix-ELEMENTS-252-web-components-doesn-t-work (Atlassian Bamboo)\""
+              }
+            ]
+          },
+          {
+            "created": "2017-08-07T11:57:12.950+0000",
+            "items": [
+              {
+                "field": "RemoteIssueLink",
+                "fieldtype": "jira",
+                "from": null,
+                "fromString": null,
+                "to": "65761",
+                "toString": "This issue links to \"Bamboo SFC - Elements (L1) › app › bugfix-ELEMENTS-252-web-components-doesn-t-work (Atlassian Bamboo)\""
+              }
+            ]
+          },
+          {
+            "created": "2017-08-07T12:04:51.740+0000",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10718",
+                "toString": "Branch Review"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-09T10:41:12.133+0000",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "10718",
+                "fromString": "Branch Review",
+                "to": "10717",
+                "toString": "Merged"
+              },
+              {
+                "field": "resolution",
+                "fieldtype": "jira",
+                "from": null,
+                "fromString": null,
+                "to": "1",
+                "toString": "Fixed"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-09T10:41:17.570+0000",
+            "items": [
+              {
+                "field": "resolution",
+                "fieldtype": "jira",
+                "from": "1",
+                "fromString": "Fixed",
+                "to": "10000",
+                "toString": "Done"
+              },
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "10717",
+                "fromString": "Merged",
+                "to": "10013",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-09T10:44:50.120+0000",
+            "items": [
+              {
+                "field": "Fix Version",
+                "fieldtype": "jira",
+                "from": null,
+                "fromString": null,
+                "to": "29592",
+                "toString": "app#2.0.1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fields": {
+        "created": "2017-08-02T10:26:44.000+0000"
+      },
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 7,
+        "total": 7,
+        "histories": [
+          {
+            "created": "2017-08-02T10:26:56.427+0000",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "10716",
+                "fromString": "Pending",
+                "to": "10010",
+                "toString": "ToDo"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-02T10:27:00.517+0000",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "10010",
+                "fromString": "ToDo",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-02T11:42:03.673+0000",
+            "items": [
+              {
+                "field": "Epic Link",
+                "fieldtype": "custom",
+                "from": null,
+                "fromString": null,
+                "to": "368007",
+                "toString": "BAMBOO-735"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-03T09:31:59.803+0000",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10718",
+                "toString": "Branch Review"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-03T09:32:35.007+0000",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "10718",
+                "fromString": "Branch Review",
+                "to": "10717",
+                "toString": "Merged"
+              },
+              {
+                "field": "resolution",
+                "fieldtype": "jira",
+                "from": null,
+                "fromString": null,
+                "to": "1",
+                "toString": "Fixed"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-07T10:38:57.310+0000",
+            "items": [
+              {
+                "field": "resolution",
+                "fieldtype": "jira",
+                "from": "1",
+                "fromString": "Fixed",
+                "to": "10000",
+                "toString": "Done"
+              },
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "10717",
+                "fromString": "Merged",
+                "to": "10013",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-07T10:40:42.487+0000",
+            "items": [
+              {
+                "field": "Fix Version",
+                "fieldtype": "jira",
+                "from": null,
+                "fromString": null,
+                "to": "29513",
+                "toString": "app#2.0.0"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fields": {
+        "created": "2017-08-01T09:59:07.000+0000"
+      },
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 6,
+        "total": 6,
+        "histories": [
+          {
+            "created": "2017-08-01T12:26:50.457+0000",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "10716",
+                "fromString": "Pending",
+                "to": "10010",
+                "toString": "ToDo"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-01T12:26:53.600+0000",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "10010",
+                "fromString": "ToDo",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-01T12:53:36.647+0000",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10718",
+                "toString": "Branch Review"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-03T09:32:13.553+0000",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "10718",
+                "fromString": "Branch Review",
+                "to": "10717",
+                "toString": "Merged"
+              },
+              {
+                "field": "resolution",
+                "fieldtype": "jira",
+                "from": null,
+                "fromString": null,
+                "to": "1",
+                "toString": "Fixed"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-07T10:39:45.187+0000",
+            "items": [
+              {
+                "field": "resolution",
+                "fieldtype": "jira",
+                "from": "1",
+                "fromString": "Fixed",
+                "to": "10000",
+                "toString": "Done"
+              },
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "10717",
+                "fromString": "Merged",
+                "to": "10013",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-07T10:40:42.427+0000",
+            "items": [
+              {
+                "field": "Fix Version",
+                "fieldtype": "jira",
+                "from": null,
+                "fromString": null,
+                "to": "29513",
+                "toString": "app#2.0.0"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fields": {
+        "created": "2017-07-31T11:00:47.000+0000"
+      },
+      "changelog": {
+        "startAt": 0,
+        "maxResults": 8,
+        "total": 8,
+        "histories": [
+          {
+            "created": "2017-07-31T11:00:47.627+0000",
+            "items": [
+              {
+                "field": "Epic Link",
+                "fieldtype": "custom",
+                "from": null,
+                "fromString": null,
+                "to": "368007",
+                "toString": "BAMBOO-735"
+              }
+            ]
+          },
+          {
+            "created": "2017-07-31T11:00:53.690+0000",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "10716",
+                "fromString": "Pending",
+                "to": "10010",
+                "toString": "ToDo"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-08T07:56:03.020+0000",
+            "items": [
+              {
+                "field": "assignee",
+                "fieldtype": "jira",
+                "from": "andrii.lazurenko",
+                "fromString": "Lazurenko, Andrii",
+                "to": "xyz",
+                "toString": "Casares, Ricardo"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-08T07:56:09.240+0000",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "10010",
+                "fromString": "ToDo",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-08T08:45:14.667+0000",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "3",
+                "fromString": "In Progress",
+                "to": "10718",
+                "toString": "Branch Review"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-09T10:41:26.070+0000",
+            "items": [
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "10718",
+                "fromString": "Branch Review",
+                "to": "10717",
+                "toString": "Merged"
+              },
+              {
+                "field": "resolution",
+                "fieldtype": "jira",
+                "from": null,
+                "fromString": null,
+                "to": "1",
+                "toString": "Fixed"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-09T10:41:31.917+0000",
+            "items": [
+              {
+                "field": "resolution",
+                "fieldtype": "jira",
+                "from": "1",
+                "fromString": "Fixed",
+                "to": "10000",
+                "toString": "Done"
+              },
+              {
+                "field": "status",
+                "fieldtype": "jira",
+                "from": "10717",
+                "fromString": "Merged",
+                "to": "10013",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "created": "2017-08-09T10:44:50.057+0000",
+            "items": [
+              {
+                "field": "Fix Version",
+                "fieldtype": "jira",
+                "from": null,
+                "fromString": null,
+                "to": "29592",
+                "toString": "app#2.0.1"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

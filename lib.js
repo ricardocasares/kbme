@@ -1,19 +1,21 @@
+const got = require('got')
 const { pad, date_ago, days_between, num_reducer, replace } = require('./util')
 
 module.exports = {
+  lead,
+  cycle,
   request,
-  metrics
+  metrics,
+  date_to_status,
 }
 
 /**
  * Returns an API request function used to execute JQL
  * @param {Object} config  API configuration options
  */
-function request({jira, user, pass, endpoint}) {
-  const got = require('got')
-
+function request({jira, user, pass, endpoint}, req = got) {
   return async (jql) =>
-    await got(replace(endpoint, {jira, jql}), {
+    await req(replace(endpoint, {jira, jql}), {
       json: true,
       auth: `${user}:${pass}`
     }).then(res => res.body.issues)
