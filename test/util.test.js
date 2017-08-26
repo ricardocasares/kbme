@@ -1,4 +1,4 @@
-const { pad, csv, date_ago, days_between, num_reducer, replace } = require('../lib/util')
+const { pad, csv, date_ago, days_between, num_reducer, replace, generate_dates } = require('../lib/util')
 
 
 describe('util', () => {
@@ -74,6 +74,19 @@ describe('util', () => {
 
     test('should replace only matching strings', () => {
       expect(result).toContain('%noreplaceme')
+    })
+  })
+
+  describe('#generate_dates', () => {
+    test('should create an array of dates for default interval and period', () => {
+      expect(generate_dates()).toHaveLength(25)
+    })
+
+    test('should create an array of dates for given interval and period', () => {
+      expect(generate_dates(30, 30)).toHaveLength(1)
+      expect(generate_dates(15, 20)).toHaveLength(2)
+      expect(generate_dates(15, 31)).toHaveLength(3)
+      expect(generate_dates(15, 365)).toHaveLength(25)
     })
   })
 })
