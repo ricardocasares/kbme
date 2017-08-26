@@ -62,12 +62,12 @@ You can create a `.env` file from which `kbme` will read environment variables, 
 ### Sample .env file
 ````
 KBME_JIRA="http://server-url.com"
-KBME_USER="Ringo"
-KBME_PASS="St4r"
+KBME_USER="MrBobry"
+KBME_PASS="DzienBobry"
 KBME_AUTO=15
+KBME_REPORT=false
 KBME_PERIOD=365
 KBME_INTERVAL=15
-KBME_REPORT=true
 KBME_START="2017-01-01"
 KBME_FINISH="2017-06-01"
 KBME_DONE="Done"
