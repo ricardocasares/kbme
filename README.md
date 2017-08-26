@@ -23,6 +23,11 @@ Watch the video to understand how metrics are collected.
 
 ## Usage
 
+Default output is prettified `json`
+
+> `kbme >> metrics.json`
+
+
 Use the `kbme` command to gather information for a particular period of time
 
 > `kbme --csv --start 2017-08-01 --finish 2017-08-31 >> metrics.csv`
@@ -30,7 +35,7 @@ Use the `kbme` command to gather information for a particular period of time
 
 Collect metrics for the last 90 days using 15 days intervals
 
-> `kbme --report --interval 15 --period 90 >> metrics.csv`
+> `kbme --report --interval 15 --period 90 --csv >> metrics.csv`
 
 
 
