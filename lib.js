@@ -38,6 +38,7 @@ function lead({fields, changelog}, status) {
 
   return days_between(finish, start)
 }
+
 /**
  * Cycle time
  *
