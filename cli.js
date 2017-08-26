@@ -2,7 +2,7 @@
 const mri = require('mri')
 const opt = require('./lib/options')
 const { request, metrics } = require('./lib')
-const { replace, csv } = require('./lib/util')
+const { replace, csv, date_ago } = require('./lib/util')
 
 const flags = mri(process.argv.slice(2), {
   alias: {
