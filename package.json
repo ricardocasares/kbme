@@ -24,9 +24,7 @@
     "mri": "^1.1.0"
   },
   "devDependencies": {
-    "expect.js": "^0.3.1",
-    "jest": "^20.0.4",
-    "mocha": "^3.5.0"
+    "jest": "^20.0.4"
   },
   "scripts": {
     "test": "jest --coverage",
