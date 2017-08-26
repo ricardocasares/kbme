@@ -1,6 +1,6 @@
 {
   "name": "kbme",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Gather kanban metrics from your JIRA instance",
   "main": "lib/index.js",
   "bin": {
