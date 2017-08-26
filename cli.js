@@ -2,7 +2,7 @@
 const mri = require('mri')
 const opt = require('./options')
 const { request, metrics } = require('./lib')
-const { validate, replace, csv, handle_error } = require('./util')
+const { replace, csv } = require('./util')
 
 const flags = mri(process.argv.slice(2), {
   alias: {
@@ -80,4 +80,5 @@ function handle_error(err) {
   envelope.message = err.statusMessage || 'An error has occurred'
 
   console.error(envelope)
+  process.exit(1)
 }
