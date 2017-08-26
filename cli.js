@@ -45,7 +45,7 @@ function validate(opt) {
   let error = false
 
   if (flags.help) {
-    console.log(require('./help'))
+    console.log(require('./lib/help'))
     process.exit(0);
   }
 
