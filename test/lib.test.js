@@ -1,5 +1,5 @@
 const { got } = require('./mocks')
-const { date_ago } = require('../util')
+const { date_ago } = require('../lib/util')
 const { issues } = require('./mocks/issues.json')
 const { request, lead, cycle, metrics, date_to_status } = require('../lib')
 

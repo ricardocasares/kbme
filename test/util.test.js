@@ -1,4 +1,5 @@
-const { pad, csv, date_ago, days_between, num_reducer, replace } = require('../util')
+const { pad, csv, date_ago, days_between, num_reducer, replace } = require('../lib/util')
+
 
 describe('util', () => {
   describe('#pad', () => {

@@ -2,7 +2,7 @@
   "name": "kbme",
   "version": "1.0.4",
   "description": "Gather kanban metrics from your JIRA instance",
-  "main": "index.js",
+  "main": "lib/index.js",
   "bin": {
     "kbme": "cli.js"
   },
@@ -30,6 +30,6 @@
   },
   "scripts": {
     "test": "jest --coverage",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "jest --watch"
   }
 }
