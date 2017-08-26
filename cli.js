@@ -24,11 +24,6 @@ const flags = mri(process.argv.slice(2), {
 
 validate(flags)
 
-if (flags.help) {
-  console.log(require('./help'))
-  process.exit(0);
-}
-
 run(flags)
   .then(console.log)
   .catch(handle_error);
@@ -48,6 +43,11 @@ async function run(opt) {
 
 function validate(opt) {
   let error = false
+
+  if (flags.help) {
+    console.log(require('./help'))
+    process.exit(0);
+  }
 
   if (!opt.jira) {
     error = true
