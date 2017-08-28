@@ -4,32 +4,30 @@ const { issues } = require('./mocks/issues.json')
 const { request, lead, cycle, metrics, date_to_status, query, report } = require('../lib')
 
 let options = {
-  auto: false,
   done: 'Done',
   todo: 'ToDo',
   start: '2017-08-01',
   finish: '2017-08-26',
-  jira: 'test',
+  jira: 'jira',
   user: 'user',
   pass: 'pass',
-  endpoint: 'test',
+  endpoint: '%jira/%jql',
   query: 'test',
   interval: 2,
-  period: 4
+  period: 4,
+  report: false
 }
 
-const makeOptions = (opts) => Object.assign({}, options, opts)
+const makeOptions = opts => Object.assign({}, options, opts)
 
 describe('lib', () => {
   describe('#request', () => {
-    const opts = {jira: '', user: '', pass: '', endpoint: ''}
-
     test('should return a function', () => {
-      expect(typeof request(opts)).toBe('function')
+      expect(typeof request(options)).toBe('function')
     })
 
     test('function returned should return a promise', async () => {
-      const api = request(opts, got)
+      const api = request(options, got)
       const res = await api()
       expect(api() instanceof Promise).toBe(true)
       expect(res.length).toBe(4)
@@ -38,15 +36,19 @@ describe('lib', () => {
   })
 
   describe('#lead', () => {
-    const opts = {jira: '', user: '', pass: '', endpoint: ''}
-
     test('should return return the lead time for given issue', () => {
       expect(lead(issues[0], 'ToDo')).toBe(1)
+      expect(lead(issues[1], 'ToDo')).toBe(1)
+      expect(lead(issues[2], 'ToDo')).toBe(1)
+      expect(lead(issues[3], 'ToDo')).toBe(1)
     })
   })
 
   describe('#cycle', () => {
     test('should return return the lead time for given issue', () => {
+      expect(cycle(issues[0], 'In Progress', 'ToDo')).toBe(1)
+      expect(cycle(issues[1], 'In Progress', 'ToDo')).toBe(2)
+      expect(cycle(issues[2], 'In Progress', 'ToDo')).toBe(1)
       expect(cycle(issues[3], 'In Progress', 'ToDo')).toBe(8)
     })
 
@@ -63,40 +65,35 @@ describe('lib', () => {
     })
   })
 
-  describe('#metrics', () => {
-
-    describe('automatic period', () => {
-      it('should not be used when false', () => {
-        expect(metrics(options, issues)).toMatchObject({
-          throughput: 0.16
-        })
-      })
-
-      it('should return correct througput when set', () => {
-        expect(metrics(makeOptions({ auto: 4 }), issues)).toMatchObject({
-          throughput: 1
-        })
-        expect(metrics(makeOptions({ auto: 2 }), issues)).toMatchObject({
-          throughput: 2
-        })
-      })
-    })
-  })
-
   describe('#query', () => {
     describe('should collect metrics for specific interval', () => {
-      it('should not be used when false', async () => {
-        const res = await query(options, got)
-        expect(res).toMatchObject({throughput: 0.16})
+      it('should return correct output for given options', async () => {
+        const a = await query(options, got)
+
+        const b = await query(makeOptions({
+          start: '2017-08-01',
+          finish: '2017-08-03',
+        }), got)
+
+        const c = await query(makeOptions({
+          start: '2017-08-01',
+          finish: '2017-08-05',
+        }), got)
+
+        expect(a).toMatchObject({throughput: 0.16})
+        expect(b).toMatchObject({throughput: 2})
+        expect(c).toMatchObject({throughput: 1})
       })
     })
   })
 
   describe('#report', () => {
     describe('should collect metrics for specific period & interval', () => {
-      it('should not be used when false', async () => {
-        const res = await report(options, got)
-        expect(res).toHaveLength(2)
+      it('should not be used when report set to false', async () => {
+        const a = await report(options, got)
+        const b = await report(makeOptions({period: 9, interval: 3}), got)
+        expect(a).toHaveLength(2)
+        expect(b).toHaveLength(3)
       })
     })
   })

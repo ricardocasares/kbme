@@ -29,6 +29,11 @@ if (!flags.report) {
 function validate(opt) {
   let error = false
 
+  if (!opt.report && opt.period) {
+    opt.start = date_ago(opt.period)
+    opt.finish = date_ago(0)
+  }
+
   if (!opt.jira) {
     error = true
     console.error('Please configure your JIRA URL environment variable')
