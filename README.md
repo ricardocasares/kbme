@@ -41,7 +41,7 @@ Collect metrics for the last 90 days using 15 days intervals
 
 Adds a new line to the previous report using data from last 15 days
 
-> `kbme --auto 15 --csv >> metrics.csv`
+> `kbme --period 15 --csv >> metrics.csv`
 
 ### Options
 
@@ -52,14 +52,13 @@ Adds a new line to the previous report using data from last 15 days
     -t, --todo        ToDo status [ToDo]
     -s, --start       Period start [2017-08-01]
     -f, --finish      Period finish [2017-08-15]
-    -a, --auto        Automatic period dates based on days ago []
     -q, --query       JIRA JQL Query [project IN (%keys) AND status IN (%done) AND resolutiondate > %start AND resolutiondate < %finish AND issuetype %types]
     -u, --user        JIRA username []
     -p, --pass        JIRA password
     -j, --jira        JIRA REST API URL [https://server-name.com]
     -e, --endpoint    JIRA JQL /search endpoint [%jira/jira/rest/api/2/search?jql=%jql&expand=changelog&maxResults=1000]
-    --period          Period of time to collect metrics, in days [${opt.period}]
-    -i, --interval    Interval to split metrics on, in days [${opt.interval}]
+    --period          Period of time to collect metrics, in days [90]
+    -i, --interval    Interval to split metrics on when using --report, in days [15]
 
 ## Automatic environment variables detection
 

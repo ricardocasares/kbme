@@ -16,18 +16,23 @@ if (flags.report) {
   report(flags)
     .then(format(flags))
     .then(console.log)
-    .catch(handle_error)
+    .catch(console.log)
 }
 
 if (!flags.report) {
   query(flags)
     .then(format(flags))
     .then(console.log)
-    .catch(handle_error)
+    .catch(console.log)
 }
 
 function validate(opt) {
   let error = false
+
+  if (flags.period && !flags.report) {
+    flags.start = date_ago(flags.period)
+    flags.finish = date_ago(0)
+  }
 
   if (!opt.jira) {
     error = true
