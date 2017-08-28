@@ -16,23 +16,18 @@ if (flags.report) {
   report(flags)
     .then(format(flags))
     .then(console.log)
-    .catch(console.log)
+    .catch(handle_error)
 }
 
 if (!flags.report) {
   query(flags)
     .then(format(flags))
     .then(console.log)
-    .catch(console.log)
+    .catch(handle_error)
 }
 
 function validate(opt) {
   let error = false
-
-  if (flags.period && !flags.report) {
-    flags.start = date_ago(flags.period)
-    flags.finish = date_ago(0)
-  }
 
   if (!opt.jira) {
     error = true
@@ -47,12 +42,6 @@ function validate(opt) {
   if (!opt.pass) {
     error = true
     console.error('Please configure your JIRA password environment variable')
-  }
-
-  if (opt.auto) {
-    opt.auto = parseInt(opt.auto, 10)
-    opt.start = date_ago(opt.auto)
-    opt.finish = date_ago(0)
   }
 
   if (error) process.exit(1)
