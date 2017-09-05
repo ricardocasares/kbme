@@ -49,7 +49,7 @@
                 "from": null,
                 "fromString": null,
                 "to": "65760",
-                "toString": "This issue links to \"Bamboo Development Tools › wk-docs › bugfix-ELEMENTS-252-web-components-doesn-t-work (Atlassian Bamboo)\""
+                "toString": "This issue links to \"ISK › bugfix-ISK-252-web (Atlassian ISK)\""
               }
             ]
           },
@@ -62,7 +62,7 @@
                 "from": null,
                 "fromString": null,
                 "to": "65761",
-                "toString": "This issue links to \"Bamboo SFC - Elements (L1) › app › bugfix-ELEMENTS-252-web-components-doesn-t-work (Atlassian Bamboo)\""
+                "toString": "This issue links to \"ISK › bugfix-ISK-252-web (Atlassian ISK)\""
               }
             ]
           },
@@ -181,7 +181,7 @@
                 "from": null,
                 "fromString": null,
                 "to": "368007",
-                "toString": "BAMBOO-735"
+                "toString": "ISK-735"
               }
             ]
           },
@@ -380,7 +380,7 @@
                 "from": null,
                 "fromString": null,
                 "to": "368007",
-                "toString": "BAMBOO-735"
+                "toString": "ISK-735"
               }
             ]
           },
