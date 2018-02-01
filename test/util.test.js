@@ -65,8 +65,8 @@ describe('util', () => {
 
   describe('#num_reducer', () => {
     test('should return the date string of n days ago', () => {
-      expect([0].reduce(num_reducer), 0).toBe(0)
-      expect([1,2,3].reduce(num_reducer), 0).toBe(6)
+      expect([0].reduce(num_reducer, 0)).toBe(0)
+      expect([1,2,3].reduce(num_reducer, 0)).toBe(6)
     })
   })
 
