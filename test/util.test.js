@@ -38,8 +38,8 @@ describe('util', () => {
 
   describe('#date_ago', () => {
     const d = new Date()
-    const date = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${d.getDate()}`
-    const year = `${d.getFullYear()-1}-${pad(d.getMonth()+1)}-${d.getDate()}`
+    const date = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`
+    const year = `${d.getFullYear()-1}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`
 
     test('should return the date string of n days ago', () => {
       expect(date_ago(0)).toBe(date)
