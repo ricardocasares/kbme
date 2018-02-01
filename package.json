@@ -24,7 +24,7 @@
     "mri": "^1.1.0"
   },
   "devDependencies": {
-    "jest": "^20.0.4"
+    "jest": "^22.1.4"
   },
   "scripts": {
     "test": "jest --coverage",
