@@ -20,7 +20,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^4.0.0",
-    "got": "^7.1.0",
+    "got": "^8.0.3",
     "mri": "^1.1.0"
   },
   "devDependencies": {
