@@ -86,5 +86,10 @@ KBME_ENDPOINT="%jira/jira/rest/api/2/search?jql=%jql&expand=changelog"
 Pay special attention to the query and endpoint options, they have special characters (%opt) that
 can be used as a template to replace by another option value.
 
+## Debug
+In order to log JQL queries into the console
+
+> `DEBUG=jql kbme`
+
 ## Contribute
 Feel free to fill an issue and submit a pull request if you find any problems.
