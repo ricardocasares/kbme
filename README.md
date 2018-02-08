@@ -87,7 +87,7 @@ Pay special attention to the query and endpoint options, they have special chara
 can be used as a template to replace by another option value.
 
 ## Debug
-In order to log JQL queries into the console
+Log JQL queries into the console
 
 > `DEBUG=jql kbme`
 
