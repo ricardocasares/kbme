@@ -19,7 +19,7 @@
   "author": "Ricardo Casares",
   "license": "ISC",
   "dependencies": {
-    "debug": "^3.1.0",
+    "debug": "^4.0.1",
     "dotenv": "^6.0.0",
     "got": "^9.2.0",
     "mri": "^1.1.0"
