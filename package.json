@@ -37,7 +37,7 @@
       "master",
       {
         "name": "develop",
-        "prerelease": "true"
+        "prerelease": true
       }
     ],
     "plugins": [
