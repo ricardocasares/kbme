@@ -33,13 +33,6 @@
     "release": "npx semantic-release@beta"
   },
   "release": {
-    "branches": [
-      "master",
-      {
-        "name": "develop",
-        "prerelease": true
-      }
-    ],
     "plugins": [
       "@semantic-release/npm",
       "@semantic-release/github",

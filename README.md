@@ -94,13 +94,13 @@ Feel free to fill an issue and submit a pull request if you find any problems.
 
 ### Releases
 
-#### Development
+#### Beta
 
-Create a feature branch and make a pull-request to `develop` branch.
+Create a feature branch and make a pull-request to `beta` branch.
 Once it gets merged, you can try and install the package using:
 
 ```bash
-> npm i -g kbme@develop
+> npm i -g kbme@beta
 ```
 
 #### Production
