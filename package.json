@@ -25,18 +25,39 @@
     "mri": "^1.1.0"
   },
   "devDependencies": {
-    "jest": "^23.1.0"
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^1.3.1",
+    "jest": "^23.1.0",
+    "lint-staged": "^8.1.0"
   },
   "scripts": {
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "release": "npx semantic-release@beta"
+    "release": "npx semantic-release@beta",
+    "commit": "npx git-cz",
+    "format": "npx prettier --write **/*.js"
   },
   "release": {
     "plugins": [
       "@semantic-release/npm",
       "@semantic-release/github",
       "@semantic-release/release-notes-generator"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run prettier",
+      "git add"
     ]
   }
 }
