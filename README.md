@@ -1,4 +1,5 @@
 # kbme
+
 [![Build Status](https://travis-ci.org/ricardocasares/kbme.svg?branch=master)](https://travis-ci.org/ricardocasares/kbme)
 [![codecov](https://codecov.io/gh/ricardocasares/kbme/branch/master/graph/badge.svg)](https://codecov.io/gh/ricardocasares/kbme)
 [![npm](https://img.shields.io/npm/dt/kbme.svg)](https://npmjs.com/package/kbme)
@@ -10,8 +11,6 @@ Gather kanban metrics from your JIRA instance:
 - Throughput
 
 This tool was inspired by one of the talks on the european Atlassian Summit 2017
-
-
 
 [![Atlassian Summit](https://image.ibb.co/faANgk/Screen_Shot_2017_08_26_at_3_42_48_PM.png)](https://www.youtube.com/watch?v=m-w2cU_1oB8)
 
@@ -27,17 +26,13 @@ Default output is prettified `json`
 
 > `kbme >> metrics.json`
 
-
 Use the `kbme` command to gather information for a particular period of time
 
 > `kbme --csv --start 2017-08-01 --finish 2017-08-31 >> metrics.csv`
 
-
 Collect metrics for the last 90 days using 15 days intervals
 
 > `kbme --report --interval 15 --period 90 --csv >> metrics.csv`
-
-
 
 Adds a new line to the previous report using data from last 15 days
 
@@ -65,7 +60,8 @@ Adds a new line to the previous report using data from last 15 days
 You can create a `.env` file from which `kbme` will read environment variables, use this to setup a project you want constant metrics from.
 
 ### Sample .env file
-````
+
+```
 KBME_JIRA="http://server-url.com"
 KBME_USER="MrBobry"
 KBME_PASS="DzienBobry"
@@ -81,15 +77,33 @@ KBME_KEYS="ELEMENTS"
 KBME_TYPES="NOT IN (Epic)"
 KBME_QUERY="project IN (%keys) AND status IN (%done) AND resolutiondate > %start AND resolutiondate < %finish AND issuetype %types"
 KBME_ENDPOINT="%jira/jira/rest/api/2/search?jql=%jql&expand=changelog"
-````
+```
 
 Pay special attention to the query and endpoint options, they have special characters (%opt) that
 can be used as a template to replace by another option value.
 
 ## Debug
+
 Log JQL queries into the console
 
 > `DEBUG=jql kbme`
 
 ## Contribute
+
 Feel free to fill an issue and submit a pull request if you find any problems.
+
+### Releases
+
+#### Development
+
+Create a feature branch and make a pull-request to `develop` branch.
+Once it gets merged, you can try and install the package using:
+
+```bash
+> npm i -g kbme@develop
+```
+
+#### Production
+
+Create a new pull-request from `develop` to `master` branch.
+Once it gets merged, the final version will be released.
