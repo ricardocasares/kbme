@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/ricardocasares/kbme.svg?branch=master)](https://travis-ci.org/ricardocasares/kbme)
 [![codecov](https://codecov.io/gh/ricardocasares/kbme/branch/master/graph/badge.svg)](https://codecov.io/gh/ricardocasares/kbme)
 [![npm](https://img.shields.io/npm/dt/kbme.svg)](https://npmjs.com/package/kbme)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 Gather kanban metrics from your JIRA instance:
 
@@ -88,9 +89,11 @@ Log JQL queries into the console
 
 > `DEBUG=jql kbme`
 
-## Contribute
+## Contributing
 
 Feel free to fill an issue and submit a pull request if you find any problems.
+
+**IMPORTANT:** Always create feature branches from the `beta` branch.
 
 ### Releases
 
