@@ -95,6 +95,10 @@ Feel free to fill an issue and submit a pull request if you find any problems.
 
 **IMPORTANT:** Always create feature branches from the `beta` branch.
 
+### Automated versioning
+
+We use `semantic-release` to automate the versioning process, make sure you follow the [commit message convention explained here](https://github.com/semantic-release/semantic-release#commit-message-format).
+
 ### Releases
 
 #### Beta
