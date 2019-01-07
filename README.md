@@ -97,7 +97,7 @@ Feel free to fill an issue and submit a pull request if you find any problems.
 #### Beta
 
 Create a feature branch and make a pull-request to `beta` branch.
-Once it gets merged, you can try and install the package using:
+Once its merged, you can try and install the package using `@beta` dist tag on `npm`.
 
 ```bash
 > npm i -g kbme@beta
@@ -105,5 +105,5 @@ Once it gets merged, you can try and install the package using:
 
 #### Production
 
-Create a new pull-request from `develop` to `master` branch.
-Once it gets merged, the final version will be released.
+Create a new pull-request from `beta` to `master` branch.
+Once it gets merged, the final version will be released using `@latest` dist tag on `npm`.
