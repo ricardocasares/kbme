@@ -17,8 +17,12 @@ deploy:
     skip_cleanup: true
     script: npm run release
     on:
-      master: true
-      develop: true
+      branch: master
+  - provider: script
+    skip_cleanup: true
+    script: npm run release
+    on:
+      branch: develop
 
 notifications:
   email:
