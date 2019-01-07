@@ -8,6 +8,8 @@ install:
 
 script:
   - npm test
+
+after_success:
   - npx codecov
 
 deploy:
