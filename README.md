@@ -97,7 +97,7 @@ Feel free to fill an issue and submit a pull request if you find any problems.
 #### Beta
 
 Create a feature branch and make a pull-request to `beta` branch.
-Once it gets merged, you can try and install the package using:
+Once its merged, you can try and install the package using `@beta` dist tag.
 
 ```bash
 > npm i -g kbme@beta
