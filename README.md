@@ -99,6 +99,8 @@ Feel free to fill an issue and submit a pull request if you find any problems.
 
 We use `semantic-release` to automate the versioning process, make sure you follow the [commit message convention explained here](https://github.com/semantic-release/semantic-release#commit-message-format).
 
+**HEADS UP:** If you are not sure how write a commit message, make your changes in your feature branch and run `npm run commit` and follow the assistant.
+
 ### Releases
 
 #### Beta
