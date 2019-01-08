@@ -1,6 +1,6 @@
 # kbme
 
-[![Build Status](https://travis-ci.org/ricardocasares/kbme.svg?branch=master)](https://travis-ci.org/ricardocasares/kbme)
+[![Build Status](https://travis-ci.com/ricardocasares/kbme.svg?branch=master)](https://travis-ci.com/ricardocasares/kbme)
 [![codecov](https://codecov.io/gh/ricardocasares/kbme/branch/master/graph/badge.svg)](https://codecov.io/gh/ricardocasares/kbme)
 [![npm](https://img.shields.io/npm/dt/kbme.svg)](https://npmjs.com/package/kbme)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
